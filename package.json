@@ -1,0 +1,27 @@
+{
+  "name": "puppeteer-screnshot",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "dependencies": {
+    "mongodb": "^3.3.3",
+    "puppeteer": "^1.6.2"
+  },
+  "devDependencies": {
+    "eslint-plugin-mocha": "^4.11.0",
+    "file-system": "^2.2.2",
+    "jest": "^21.2.1",
+    "js-comments": "^0.5.4",
+    "lodash": "^4.17.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajivpt/puppeteer-screenshot.git"
+  },
+  "author": "Rajiv",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/rajivpt/puppeteer-screenshot/issues"
+  },
+  "homepage": "https://github.com/rajivpt/puppeteer-screenshot#readme"
+}
