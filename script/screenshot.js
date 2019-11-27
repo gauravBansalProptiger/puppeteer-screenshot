@@ -54,16 +54,17 @@ const screenshotUrls = async (urls, parallel) => {
             await page.goto(urls[elem].url)
             try {
               await page.waitForFunction(
-                'document.querySelector("#loading-percent__value") !== null', { timeout: 300000 }
+                'document.querySelector("#spinner") !== null', { timeout: 30000 }
               );
             } catch (e) {
               console.log('Some error ', e)
             }
             await page.waitForFunction(
-              'document.querySelector("#loading-percent__value").innerText.includes("100")', { timeout: 300000 }
+              'document.querySelector("#spinner").style.display === "none"', { timeout: 30000 }
             );
+            await page.evaluate(() => window.g_cEngineManager.m_cRenderer.m_cSceneManager.setVisibilityStatus(false) );
             await page.evaluate(() => { document.querySelector('.ui-elements').style.display = 'none' });
-            await page.screenshot({ path: "screens/" + urls[elem].name + '.png', fullPage: true }).then(console.log('🤞 I have kept my promise to screenshot ' + urls[elem].name))
+            await page.screenshot({ path: "screens/" + urls[elem].name + '.jpg', fullPage: true }).then(console.log('🤞 I have kept my promise to screenshot ' + urls[elem].name))
 
           } catch (err) {
             console.log('❌ Sorry! I couldn\'t keep my promise to screenshot ' + urls[elem].name, err)

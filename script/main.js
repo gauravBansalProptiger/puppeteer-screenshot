@@ -9,9 +9,9 @@ function saveAndMove(db) {
     fetchFromCollection(db, {
         collectionName: 'units', 
         queryArray: [
-            { $match: { "type": { $in: ["OPENSPACE_ONLINE", "OPENSPACE_HOUSING_RENTAL"] }, "config.newEngine": true } },
+            { $match: { "type": { $in: ["OPENSPACE_ONLINE", "OPENSPACE_HOUSING_RENTAL"] }, "config.newEngine": { $ne: true }, "status": "LIVE" } },
             { $project: { projectName: 1, unitName: 1 } },
-            { $project: { _id: 0, name: "$_id", url: { $concat: ["https://beta-digitour.housing.com/projects/", "$projectName", "/", "$unitName"] } } }
+            { $project: { _id: 0, name: "$_id", url: { $concat: ["http://qa-digitour.housing.com/projects/", "$projectName", "/", "$unitName"] } } }
         ]
     })
         .then((projects) => {
