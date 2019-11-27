@@ -1,6 +1,6 @@
 const mongoClient = require('mongodb').MongoClient;
 
-const dbPath = "mongodb://localhost:27020/digitour";
+const dbPath = "mongodb://localhost:27017/digitour";
 
 const screenshot = require('./screenshot');
 
